@@ -27,4 +27,4 @@ jobs:
     params:
       domain: ((domain))
       token: ((token))
-    file: duckdns-concourse-repo/tasks/update-dns/task.sh
+    file: duckdns-concourse-repo/tasks/update-dns/task.yml
