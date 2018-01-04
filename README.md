@@ -5,6 +5,7 @@ Create creds.yml
 ---
 domain: ...
 token: ...
+tags: []
 </pre>
  
 # Add pipeline to concourse

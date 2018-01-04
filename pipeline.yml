@@ -2,12 +2,14 @@
 resources:
 
 - name: duckdns-concourse-repo
+  tags: ((tags))
   type: git
   source:
     uri: https://github.com/lee-andrew/duckdns-concourse.git 
     branch: master
 
 - name: 5-minutes
+  tags: ((tags))
   type: time
   source:
     interval: 5m
@@ -16,8 +18,12 @@ jobs:
 - name: Update Duck DNS
   plan:
   - get: duckdns-concourse-repo
+    tags: ((tags))
   - get: 5-minutes
+    trigger: true
+    tags: ((tags))
   - task: update-dns
+    tags: ((tags))
     params:
       domain: ((domain))
       token: ((token))
