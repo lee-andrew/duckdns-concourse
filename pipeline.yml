@@ -1,0 +1,24 @@
+---
+resources:
+
+- name: duckdns-concourse-repo
+  type: git
+  source:
+    uri: https://github.com/lee-andrew/duckdns-concourse.git 
+    branch: master
+
+- name: 5-minutes
+  type: time
+  source:
+    interval: 5m
+
+jobs:
+- name: Update Duck DNS
+  plan:
+  - get: duckdns-concourse-repo
+  - get: 5-minutes
+  - task: update-dns
+    params:
+      domain: ((domain))
+      token: ((token))
+    file: duckdns-concourse-repo/tasks/update-dns/task.sh

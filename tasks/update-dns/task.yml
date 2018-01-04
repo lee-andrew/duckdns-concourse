@@ -1,0 +1,12 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: plexcloudmusic/privatebox
+
+inputs:
+  - name: duckdns-concourse-repo
+
+run:
+  path: duckdns-concourse-repo/tasks/update-dns/task.sh
